@@ -1,4 +1,7 @@
 # Atomated LP
+```diff
+ - i'm currrently working on it!  
+```
 This repository helps you create a veritable cornucopia of persian licence plates. 
 Training your own CNN would be easier though!
 
@@ -8,6 +11,8 @@ Generated sample:\
 
 For the sake of ease, generated licence plates come with their annotations: \
 ![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png) 
+
+Generated sample with perspective transformations:
 
 ## How to Use
 **because of oop pattern you won't need to make significant changes 

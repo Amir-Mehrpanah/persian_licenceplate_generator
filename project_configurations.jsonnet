@@ -11,8 +11,8 @@ local mini_numbers_step = 75;
 local letter_y_offset = 20;
 local letter_x_offset = 190;
 
-local noise_y_bounds_deviation = 40;
-local noise_x_bounds_deviation = 80;
+local noise_y_bounds_deviation = 50;
+local noise_x_bounds_deviation = 50;
 
 {
   "annotations_config": {
@@ -107,8 +107,8 @@ local noise_x_bounds_deviation = 80;
         "x_max": 88 + noise_x_bounds_deviation
       },
       {
-        "y_min": 400 - noise_y_bounds_deviation,
-        "y_max": 400 + noise_y_bounds_deviation,
+        "y_min": 400 - 2.5 * noise_y_bounds_deviation,
+        "y_max": 400 + 2.5 * noise_y_bounds_deviation,
         "x_min": 88 - noise_x_bounds_deviation,
         "x_max": 88 + noise_x_bounds_deviation
       },

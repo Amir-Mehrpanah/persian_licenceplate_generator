@@ -30,7 +30,7 @@ class PlateGenerator:
     def __init__(self, asset_manager: AssetManager):
         self.asset_manager = asset_manager
 
-    def get_rnd_plate(self, apply_noise=False, apply_dirt=False) -> (numpy.ndarray, numpy.ndarray):
+    def get_rnd_plate(self, apply_dirt=False, apply_misc_noise=False) -> (numpy.ndarray, numpy.ndarray):
         plate, annotation = self.asset_manager.get_rnd_raw_plate()
 
         for index, (number, number_annotation) in enumerate(self.asset_manager.get_rnd_numbers()):
@@ -54,7 +54,7 @@ class PlateGenerator:
         alpha_blend(plate, letter, offset)
         annotation_blend(annotation, letter_annotation, offset)
 
-        if apply_noise:
+        if apply_misc_noise:
             for noise_box in self.asset_manager.noise_config['misc_bounds']:
                 if random.uniform(0, 1) < self.asset_manager.noise_config['misc_probability']:
                     misc = self.asset_manager.get_rnd_misc_noise()
