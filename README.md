@@ -4,10 +4,10 @@ Training your own CNN would be easier though!
 
 ## Incentives 
 Generated sample:\
- [Sample(https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/simple_out.png)]
+ [Sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/simple_out.png)
 
 For the sake of ease, generated licence plates come with their annotations: \
-[Sample(https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png)] 
+[Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png) 
 
 ## How to Use
 **because of oop pattern you won't need to make significant changes 
