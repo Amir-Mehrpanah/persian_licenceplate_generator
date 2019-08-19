@@ -34,12 +34,12 @@ def perspective_transform(image: numpy.ndarray, annotation: numpy.ndarray, confi
                      [0, 1, 0, 0],
                      [0, 0, 1, dz],
                      [0, 0, 0, 1]])
-    a_2 = numpy.array([[f, 0, 512, 0],
-                       [0, f, 512, 0],
+    a_2 = numpy.array([[f, 0, config['output_size'][0] / 2, 0],
+                       [0, f, config['output_size'][1] / 2, 0],
                        [0, 0, 1, 0]])
 
     trans = numpy.matmul(a_2, numpy.matmul(t, numpy.matmul(r, a_1)))
 
-    image = cv2.warpPerspective(image, trans, (1024, 1024))
-    annotation = cv2.warpPerspective(annotation, trans, (1024, 1024))
+    image = cv2.warpPerspective(image, trans, (config['output_size'][0], config['output_size'][1]))
+    annotation = cv2.warpPerspective(annotation, trans, (config['output_size'][0], config['output_size'][1]))
     return image, annotation
