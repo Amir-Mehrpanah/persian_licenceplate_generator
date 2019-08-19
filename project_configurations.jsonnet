@@ -1,3 +1,5 @@
+local PI =  3.14159265359;
+
 local global_y_offset = 90;
 local global_x_offset = 115;
 
@@ -121,9 +123,11 @@ local noise_x_bounds_deviation = 50;
     ]
   },
   "transformations_config": {
-      "3d_rotation": {
-      "alpha"
-    }
+    "output_size": [1024,1024],
+    "max_dalpha": PI / 4,
+    "max_dbeta": PI / 4,
+    "max_dgamma": PI / 6,
+    "max_dz": 3.5 // min_dz = 1
   },
   "components": {
     "dirt": "components/dirt/*.png",
