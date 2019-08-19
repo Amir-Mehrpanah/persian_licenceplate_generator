@@ -4,7 +4,7 @@ import cv2
 import numpy
 
 
-def perspective_transform(image: numpy.ndarray, config) -> numpy.ndarray:
+def perspective_transform(image: numpy.ndarray, annotation: numpy.ndarray, config) -> [numpy.ndarray, numpy.ndarray]:
     alpha = random.uniform(-config['max_dalpha'], config['max_dalpha'])
     beta = random.uniform(-config['max_dbeta'], config['max_dbeta'])
     gamma = random.uniform(-config['max_dgamma'], config['max_dgamma'])
@@ -40,5 +40,6 @@ def perspective_transform(image: numpy.ndarray, config) -> numpy.ndarray:
 
     trans = numpy.matmul(a_2, numpy.matmul(t, numpy.matmul(r, a_1)))
 
-    result = cv2.warpPerspective(image, trans, (1024, 1024), cv2.INTER_LANCZOS4)
-    return result
+    image = cv2.warpPerspective(image, trans, (1024, 1024))
+    annotation = cv2.warpPerspective(annotation, trans, (1024, 1024))
+    return image, annotation

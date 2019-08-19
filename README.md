@@ -12,17 +12,20 @@ Generated sample:\
 For the sake of ease, generated licence plates come with their annotations: \
 ![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png) 
 
-Generated sample with perspective transformations:
+Generated sample with perspective transformations:\
+![Transformations sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transformed.gif) 
 
 ## How to Use
 **because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
 1. **got all requirements installed**:
     * opencv-python
-    * jsonnet 
+    * jsonnet
     * json
+    
 2. **Tweak configuration file (optional)**:
     * project_configurations.jsonnet
+    
 3. **Out-of-the-box data generation**:
     * With default parameters (specified in the former step):\
     ```$ python3 main.py```

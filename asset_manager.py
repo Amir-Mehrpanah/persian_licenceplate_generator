@@ -32,7 +32,7 @@ class AssetManager:
                 key = file_name.replace('.png', '').split('/')[-1]
                 try:
                     annotation_value = project_config_file['annotations_config'][key]
-                    annotation = (numpy.array(image[:, :, 3]) > 0).astype(int)
+                    annotation = (numpy.array(image[:, :, 3]) > 0).astype(numpy.uint8)
                     annotation = numpy.multiply(annotation, annotation_value)
                     self.__annotations[item].append(annotation)
                 except KeyError:
