@@ -13,7 +13,7 @@ For the sake of ease, generated licence plates come with their annotations: \
 ![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png) 
 
 Generated sample with perspective transformations:\
-![Transformations sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transformed.gif) 
+<img src="https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transformed.gif" width="544" height="336" />
 
 ## How to Use
 **because of oop pattern you won't need to make significant changes 
