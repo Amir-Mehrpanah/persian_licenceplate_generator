@@ -2,8 +2,8 @@
 ```diff
  - i'm currrently working on it!  
 ```
-This repository helps you create a veritable cornucopia of persian licence plates. 
-Training your own CNN would be easier though!
+This repository helps you generate a veritable cornucopia of persian licence plates.
+Training your own CNN would be the next step though!
 
 ## Incentives 
 Generated sample:\

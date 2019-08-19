@@ -121,6 +121,9 @@ local noise_x_bounds_deviation = 50;
     ]
   },
   "transformations_config": {
+      "3d_rotation": {
+      "alpha"
+    }
   },
   "components": {
     "dirt": "components/dirt/*.png",
