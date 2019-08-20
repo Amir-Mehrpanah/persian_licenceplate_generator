@@ -8,7 +8,8 @@ import numpy
 
 
 class AssetManager:
-    def __init__(self, config_path):
+    def __init__(self, config_path, log_warning=False):
+        self.log_warning = log_warning
         # no need to change the code, just tweak the config file :)
         project_config_file = json.loads(config_path)
         self.__init_components(project_config_file)
@@ -36,9 +37,10 @@ class AssetManager:
                     annotation = numpy.multiply(annotation, annotation_value)
                     self.__annotations[item].append(annotation)
                 except KeyError:
-                    warnings.warn(
-                        f'key: {key} for {file_name} not found in project_config ->'
-                        f' annotations_config.\n Annotation skipped.')
+                    if self.log_warning:
+                        warnings.warn(
+                            f'key: {key} for {file_name} not found in project_config ->'
+                            f' annotations_config.\n Annotation skipped.')
 
     def get_rnd_raw_plate(self) -> (numpy.ndarray, numpy.ndarray):
         index = random.randint(0, len(self.__components['plates']) - 1)
@@ -71,5 +73,8 @@ class AssetManager:
         return random.choice(self.__components['dirt'])
 
     def get_rnd_misc_noise(self) -> numpy.ndarray:
-        noise = random.choice(self.__components['misc'])
-        return noise
+        misc = random.choice(self.__components['misc'])
+        return misc
+
+    def get_rnd_background(self) -> numpy.ndarray:
+        return random.choice(self.__components['backgrounds']).copy()

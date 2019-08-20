@@ -136,5 +136,6 @@ local noise_x_bounds_deviation = 50;
     "misc": "components/misc/*.png",
     "numbers": "components/numbers/*.png",
     "plates": "components/plates/*.png",
+    "backgrounds": "components/backgrounds/*.png"
   }
 }

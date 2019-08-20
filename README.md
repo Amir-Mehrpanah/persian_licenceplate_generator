@@ -16,9 +16,9 @@ Generated sample with perspective transformations:\
 <img src="https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transformed.gif" width="544" height="336" />
 
 ## How to Use
-**because of oop pattern you won't need to make significant changes 
+**Because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
-1. **got all requirements installed**:
+1. **Got all requirements installed**:
     * opencv-python
     * jsonnet
     * json

@@ -1,3 +1,4 @@
 .gitignore
 /venv/
 /.idea/
+/background/*.png
