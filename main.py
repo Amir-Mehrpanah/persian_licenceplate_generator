@@ -21,12 +21,12 @@ args = parser.parse_args()
 print(f'generating {args.num_out_img} number of images.')
 progress = tqdm(range(args.num_out_img))
 
-for item in progress:
+for index in progress:
     plate_generator = PlateGenerator(assets)
     plate, annotation = plate_generator.get_rnd_plate(apply_misc_noise=args.apply_misc_noise,
                                                       apply_dirt=args.apply_dirt)
     plate, annotation = transformations.perspective_transform(plate, annotation, assets.transformations_config)
     plate = plate_generator.fill_background(plate)
-    cv2.imshow("transformed_out.png", plate)
-    cv2.waitKey(100)
+    cv2.imwrite("output/{0:05}.jpg".format(index), plate)
+    cv2.imwrite("ann_output/{0:05}.png".format(index), annotation)
     progress.set_postfix_str('memory: %' + str(psutil.virtual_memory()[2]))
