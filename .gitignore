@@ -1,4 +1,4 @@
 .gitignore
 /venv/
 /.idea/
-
+/components/backgrounds/[001-999]*

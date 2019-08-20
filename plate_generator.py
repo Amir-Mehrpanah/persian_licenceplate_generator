@@ -30,9 +30,9 @@ class PlateGenerator:
     def __init__(self, asset_manager: AssetManager):
         self.asset_manager = asset_manager
 
-    def fill_bakground(self, plate: numpy.ndarray) -> numpy.ndarray:
-        bg = self.asset_manager.get_rnd_background()
-        plate = alpha_blend(bg, plate, [0, 0])
+    def fill_background(self, plate: numpy.ndarray) -> numpy.ndarray:
+        bg = self.asset_manager.get_nxt_background()
+        plate = alpha_blend(bg, plate, [(bg.shape[0] - plate.shape[0]) // 2, (bg.shape[1] - plate.shape[1]) // 2])
         return plate
 
     def get_rnd_plate(self, apply_dirt=False, apply_misc_noise=False) -> (numpy.ndarray, numpy.ndarray):

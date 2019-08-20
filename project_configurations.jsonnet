@@ -17,6 +17,14 @@ local noise_y_bounds_deviation = 50;
 local noise_x_bounds_deviation = 50;
 
 {
+  "generator_config": {
+    "num_out_img": 500, // adding more background files might be necessary
+     // the more background pictures you load simultaneously, the faster the generator will be
+     // this limit depends on machine's available memory.
+    "background_load_limit": 100,
+    "apply_misc_noise": true,
+    "apply_dirt": true
+  },
   "annotations_config": {
     // "bg": 0,
     // plates

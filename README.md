@@ -1,7 +1,4 @@
 # Atomated LP
-```diff
- - i'm currrently working on it!  
-```
 This repository helps you generate a veritable cornucopia of persian licence plates.
 Training your own CNN would be the next step though!
 
@@ -27,7 +24,9 @@ unless you want something structurally different!**
     * project_configurations.jsonnet
     
 3. **Out-of-the-box data generation**:
-    * With default parameters (specified in the former step):\
+    * With default parameters:\
     ```$ python3 main.py```
-    * Override parameters:\
-    ```$ pyhton3 main.py --num_out_img 1000```
+    * Override config parameters:\
+    ```$ pyhton3 main.py --num_out_img 1000```\
+    ```$ pyhton3 main.py --apply_misc_noise False```\
+    ```$ pyhton3 main.py --num_out_img False``` 
