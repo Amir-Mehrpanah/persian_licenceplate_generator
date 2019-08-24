@@ -2,3 +2,6 @@
 /venv/
 /.idea/
 /components/backgrounds/[001-999]*
+/output/
+/ann_output/
+/xmls/

@@ -21,6 +21,7 @@ class AssetManager:
         self.__bg_pack = 0
         self.__bg_addresses = glob.glob(project_config_file['components']['backgrounds'])
         self.__init_components(project_config_file)
+        self.annotations_config = project_config_file['annotations_config']
         self.plate_config = project_config_file['plate_config']
         self.noise_config = project_config_file['noise_config']
         self.generator_config = project_config_file['generator_config']
@@ -57,33 +58,34 @@ class AssetManager:
 
     def __init_backgrounds(self):
         print(f'loading backgrounds (pack {self.__bg_pack})...')
-        self.__bg_pack += 1
         if self.__backgrounds is not None:
             del self.__backgrounds
         self.__backgrounds = []
-        if self.__bg_counter + self.__bg_limit > len(self.__bg_addresses):
-            self.__bg_counter = len(self.__bg_addresses) - self.__bg_limit
-        progress = tqdm(self.__bg_addresses[self.__bg_counter:self.__bg_counter + self.__bg_limit])
+        if self.__bg_limit * self.__bg_pack > len(self.__bg_addresses):
+            self.__bg_pack = 0
+        progress = tqdm(self.__bg_addresses[self.__bg_limit * self.__bg_pack:self.__bg_limit * (self.__bg_pack + 1)])
         for item in progress:
             self.__backgrounds.append(cv2.imread(item, -1))
             progress.set_postfix_str('memory: %' + str(psutil.virtual_memory()[2]))
+        self.__bg_counter = 0
+        self.__bg_pack += 1
 
     def get_rnd_raw_plate(self) -> (numpy.ndarray, numpy.ndarray):
         index = random.randint(0, len(self.__components['plates']) - 1)
-        return self.__components['plates'][index].copy(), self.__annotations['plates'][index]
+        return self.__components['plates'][index].copy(), self.__annotations['plates'][index].copy()
 
     def get_rnd_number(self) -> (numpy.ndarray, numpy.ndarray):
         index = random.randint(0, len(self.__components['numbers']) - 1)
-        return self.__components['numbers'][index].copy(), self.__annotations['numbers'][index]
+        return self.__components['numbers'][index].copy(), self.__annotations['numbers'][index].copy()
 
     def get_rnd_mini_number(self, include_zero=False) -> (numpy.ndarray, numpy.ndarray):
         start = (1, 0)[include_zero]  # awkwardly hardcoded but works fine till '0' is the first element!
         index = random.randint(start, len(self.__components['mini_numbers']) - 1)
-        return self.__components['mini_numbers'][index], self.__annotations["mini_numbers"][index]
+        return self.__components['mini_numbers'][index].copy(), self.__annotations["mini_numbers"][index].copy()
 
     def get_rnd_letter(self) -> (numpy.ndarray, numpy.ndarray):
         index = random.randint(0, len(self.__components['letters']) - 1)
-        return self.__components['letters'][index], self.__annotations['letters'][index]
+        return self.__components['letters'][index].copy(), self.__annotations['letters'][index].copy()
 
     def get_rnd_numbers(self) -> [(numpy.ndarray, numpy.ndarray)]:
         numbers = []
@@ -96,10 +98,10 @@ class AssetManager:
         return mini_numbers
 
     def get_rnd_dirt(self) -> numpy.ndarray:
-        return random.choice(self.__components['dirt'])
+        return random.choice(self.__components['dirt']).copy()
 
     def get_rnd_misc_noise(self) -> numpy.ndarray:
-        misc = random.choice(self.__components['misc'])
+        misc = random.choice(self.__components['misc']).copy()
         return misc
 
     def get_nxt_background(self) -> numpy.ndarray:

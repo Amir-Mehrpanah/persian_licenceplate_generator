@@ -21,11 +21,12 @@ local noise_x_bounds_deviation = 50;
     "num_out_img": 100, // adding more background files might be necessary
      // the more background pictures you load simultaneously, the faster the generator will be
      // this limit depends on machine's available memory.
-    "background_load_limit": 100,
+    "background_load_limit": 1, // performance tip: background_load_limit should devide number of background images
     "apply_misc_noise": true,
     "apply_dirt": true
   },
   "annotations_config": {
+    "source": "automated_lp",
     // "bg": 0,
     // plates
     "simple": 8,
