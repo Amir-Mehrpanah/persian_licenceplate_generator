@@ -1,7 +1,7 @@
 import glob
 import os
-
-import cv2
+from tqdm import tqdm
+from cv2 import cv2
 import numpy
 from json2xml import json2xml
 
@@ -22,7 +22,8 @@ def get_rects(img, threshold) -> [tuple]:
 
 def bounding_rects_to_xml(input_directory, output_directory, annotations_config):
     file_names = glob.glob(input_directory)
-    for file in file_names:
+    print('\ngenerating xmls...')
+    for file in tqdm(file_names):
         real_path = os.path.realpath(file)
         path = real_path.split('/')
         annotation = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
