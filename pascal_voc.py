@@ -25,7 +25,7 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
     for file in file_names:
         real_path = os.path.realpath(file)
         path = real_path.split('/')
-        annotation = numpy.load(file)
+        annotation = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
         data_dic = {
             'folder': path[-2],
             'path': real_path,
@@ -56,5 +56,5 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
                     'ymax': _object[3]
                 }
         xml = json2xml.Json2xml(data_dic, wrapper='annotation').to_xml()
-        with open(os.path.join(output_directory, path[-1].replace('.npy', '.xml')), "w") as f_out:
+        with open(os.path.join(output_directory, path[-1].replace('.png', '.xml')), "w") as f_out:
             f_out.write(xml)
