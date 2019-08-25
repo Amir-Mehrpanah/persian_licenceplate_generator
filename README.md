@@ -10,7 +10,7 @@ For the sake of ease, generated licence plates come with their annotations: \
 ![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/ann_simple_out.png) 
 
 Generated sample with perspective transformations:\
-<img src="https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transformed.gif" width="544" height="336" />
+![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transform.gif) 
 
 On top of all that, it automatically winds up with pascal-voc format: \
 ![Sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/pascal_voc_bbox.png)
