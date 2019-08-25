@@ -102,7 +102,7 @@
     ]
   },
   "components": {
-    "backgrounds": "components\\backgrounds\\*.png",
+    "backgrounds": "components\\backgrounds\\*.jpg",
     "dirt": "components\\dirt\\*.png",
     "letters": "components\\letters\\*.png",
     "mini_numbers": "components\\mini_numbers\\*.png",
