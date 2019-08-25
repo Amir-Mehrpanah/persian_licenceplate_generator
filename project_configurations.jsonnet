@@ -26,7 +26,6 @@ local noise_x_bounds_deviation = 50;
     "apply_dirt": true
   },
   "annotations_config": {
-    "source": "automated_lp",
     // "bg": 0,
     // all characters after '_' in the file name will be ignored
     "plate": 8,

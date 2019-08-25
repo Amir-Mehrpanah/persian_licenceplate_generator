@@ -13,10 +13,7 @@ def get_rects(img, threshold) -> [tuple]:
     thresh = (img == threshold).astype(numpy.uint8)
     thresh = cv2.erode(thresh, kernel, iterations=1)  # noise removal steps
     thresh = cv2.dilate(thresh, kernel, iterations=1)
-    contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(img, contours, -1, (255, 255, 0), 3)
-    cv2.imshow('77', img)
-    cv2.waitKey(0)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
         bbox_list.append((x, y, x + w, y + h))
@@ -35,7 +32,7 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
             'path': real_path,
             'filename': path[-1],
             'source': {
-                'database': annotations_config['source']
+                'database': 'automated_lp'  # awfully hardcoded!
             },
             'size': {
                 'width': annotation.shape[0],
@@ -44,10 +41,11 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
             },
             'segmented': 0  # awfully hardcoded!
         }
+        index = 0
+        data_dic['object'] = []
         for key in annotations_config:
             rects_list = get_rects(annotation, annotations_config[key])
-            data_dic['object'] = []
-            for index, _object in enumerate(rects_list):
+            for _object in rects_list:
                 data_dic['object'].append({})
                 data_dic['object'][index]['name'] = key
                 data_dic['object'][index]['pose'] = 'unspecified'  # awfully hardcoded!
@@ -59,6 +57,12 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
                     'xmax': _object[2],
                     'ymax': _object[3]
                 }
+                index += 1
+        for rect in data_dic['object']:
+            cv2.rectangle(annotation, (rect['bndbox']['xmin'], rect['bndbox']['ymin']),
+                          (rect['bndbox']['xmax'], rect['bndbox']['ymax']), (255, 255, 200), 1)
+            cv2.imshow('1', annotation)
+            cv2.waitKey(0)
         xml = json2xml.Json2xml(data_dic, wrapper='annotation').to_xml()
         with open(os.path.join(output_directory, path[-1].replace('.png', '.xml')), "w") as f_out:
             f_out.write(xml)

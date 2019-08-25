@@ -21,9 +21,7 @@ unless you want something structurally different!**
     * automated_lp/ann_output   --> where annotations will be located
     * automated_lp/xmls     --> where pascal voc addresses will be located
 1. **Got all requirements installed:**
-    * opencv-python
-    * jsonnet
-    * json
+    ```pip3 install --upgrade -r requirements.txt```
     
 2. **Tweak configuration file: (optional)**
     * project_configurations.jsonnet
