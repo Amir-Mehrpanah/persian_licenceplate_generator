@@ -15,6 +15,7 @@ Generated sample with perspective transformations:\
 ## How to Use
 **Because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
+
 0. **Create necessary directories:**
     * automated_lp/output   --> where pictures will be located
     * automated_lp/ann_output   --> where annotations will be located
