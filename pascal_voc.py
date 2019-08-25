@@ -66,11 +66,6 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
                     'ymax': _object[3]
                 }
                 index += 1
-        for rect in data_dic['object']:
-            cv2.rectangle(annotation, (rect['bndbox']['xmin'], rect['bndbox']['ymin']),
-                          (rect['bndbox']['xmax'], rect['bndbox']['ymax']), (255, 255, 200), 1)
-            cv2.imshow('1', annotation)
-            cv2.waitKey(0)
         xml = json2xml.Json2xml(data_dic, wrapper='annotation').to_xml()
         with open(os.path.join(output_directory, path[-1].replace('.png', '.xml')), "w") as f_out:
             f_out.write(xml)

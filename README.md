@@ -12,7 +12,7 @@ For the sake of ease, generated licence plates come with their annotations: \
 Generated sample with perspective transformations:\
 ![Annotation sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/transform.gif) 
 
-On top of all that, it automatically generates associated pascal-voc format: \
+On top of all that, it automatically generates associated xml files in pascal voc format: \
 ![Sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/pascal_voc_bbox.png)
 
 
