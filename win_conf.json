@@ -102,13 +102,13 @@
     ]
   },
   "components": {
-    "backgrounds": "components/backgrounds/*.png",
-    "dirt": "components/dirt/*.png",
-    "letters": "components/letters/*.png",
-    "mini_numbers": "components/mini_numbers/*.png",
-    "misc": "components/misc/*.png",
-    "numbers": "components/numbers/*.png",
-    "plates": "components/plates/*.png"
+    "backgrounds": "components\\backgrounds\\*.png",
+    "dirt": "components\\dirt\\*.png",
+    "letters": "components\\letters\\*.png",
+    "mini_numbers": "components\\mini_numbers\\*.png",
+    "misc": "components\\misc\\*.png",
+    "numbers": "components\\numbers\\*.png",
+    "plates": "components\\plates\\*.png"
   },
   "generator_config": {
     "apply_dirt": true,
