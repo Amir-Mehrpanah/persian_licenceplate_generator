@@ -17,7 +17,7 @@ parser.add_argument('--apply_misc_noise', default=assets.generator_config['apply
 parser.add_argument('--apply_dirt', default=assets.generator_config['apply_dirt'], type=bool)
 args = parser.parse_args()
 
-print(f'\ngenerating {args.num_out_img} number of images.')
+print(f'\ngenerating {args.num_out_img} images.')
 progress = tqdm(range(args.num_out_img))
 
 for index in progress:
