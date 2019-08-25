@@ -1,6 +1,6 @@
 # Atomated LP
 This repository helps you generate a veritable cornucopia of persian licence plates.
-[Training your own CNN would be the next step though](https://gluon-cv.mxnet.io/install.html)!
+You're almost done with this part, [training your own CNN would be the next step though](https://gluon-cv.mxnet.io/install.html)!
 
 ## Incentives 
 Generated sample:\
