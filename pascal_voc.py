@@ -16,7 +16,7 @@ def get_rects(img, threshold, single_instance) -> [tuple]:
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
-        bbox_list.append((x - 2, y - 2, x + w - 2, y + h - 2))  # compensate dilation effect
+        bbox_list.append((max(x - 2, 0), max(y - 2, 0), x + w - 2, y + h - 2))  # compensate dilation effect
 
     if single_instance and len(bbox_list) != 0:
         xmin = min([elem[0] for elem in bbox_list])
