@@ -46,7 +46,7 @@ class AssetManager:
 
                     key = file_name.split('/')[-1].replace('.png', '').split('_')[0]
                     if key in project_config_file['annotations_config']:
-                        annotation_value = project_config_file['annotations_config'][key]
+                        annotation_value = project_config_file['annotations_config'][key][0]
                         annotation = (numpy.array(image[:, :, 3]) > 192).astype(numpy.uint8)
                         annotation = numpy.multiply(annotation, annotation_value)
                         self.__annotations[item].append(annotation)

@@ -8,15 +8,23 @@ from json2xml import json2xml
 kernel = numpy.ones((2, 2), numpy.uint8)
 
 
-def get_rects(img, threshold) -> [tuple]:
+def get_rects(img, threshold, single_instance) -> [tuple]:
     bbox_list = []
     thresh = (img == threshold).astype(numpy.uint8)
     thresh = cv2.erode(thresh, kernel, iterations=1)  # noise removal steps
-    thresh = cv2.dilate(thresh, kernel, iterations=1)
+    thresh = cv2.dilate(thresh, kernel, iterations=2)
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
-        bbox_list.append((x, y, x + w, y + h))
+        bbox_list.append((x - 2, y - 2, x + w - 2, y + h - 2))  # compensate dilation effect
+
+    if single_instance and len(bbox_list) != 0:
+        xmin = min([elem[0] for elem in bbox_list])
+        ymin = min([elem[1] for elem in bbox_list])
+        xmax = max([elem[2] for elem in bbox_list])
+        ymax = max([elem[3] for elem in bbox_list])
+        bbox_list.clear()
+        bbox_list.append((xmin, ymin, xmax, ymax))
     return bbox_list
 
 
@@ -44,7 +52,7 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
         index = 0
         data_dic['object'] = []
         for key in annotations_config:
-            rects_list = get_rects(annotation, annotations_config[key])
+            rects_list = get_rects(annotation, annotations_config[key][0], single_instance=annotations_config[key][1])
             for _object in rects_list:
                 data_dic['object'].append({})
                 data_dic['object'][index]['name'] = key
