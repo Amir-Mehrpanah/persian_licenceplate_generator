@@ -1,0 +1,191 @@
+{
+  "annotations_config": {
+    "0": [
+      16,
+      false
+    ],
+    "1": [
+      24,
+      false
+    ],
+    "2": [
+      32,
+      false
+    ],
+    "3": [
+      40,
+      false
+    ],
+    "4": [
+      48,
+      false
+    ],
+    "5": [
+      56,
+      false
+    ],
+    "6": [
+      64,
+      false
+    ],
+    "7": [
+      72,
+      false
+    ],
+    "8": [
+      80,
+      false
+    ],
+    "9": [
+      88,
+      false
+    ],
+    "B": [
+      96,
+      true
+    ],
+    "Dal": [
+      104,
+      true
+    ],
+    "Ghaf": [
+      112,
+      true
+    ],
+    "Gim": [
+      120,
+      true
+    ],
+    "H": [
+      128,
+      true
+    ],
+    "Lam": [
+      136,
+      true
+    ],
+    "Mim": [
+      144,
+      true
+    ],
+    "Nun": [
+      152,
+      true
+    ],
+    "Sad": [
+      160,
+      true
+    ],
+    "Sin": [
+      168,
+      true
+    ],
+    "T": [
+      176,
+      true
+    ],
+    "Tah": [
+      184,
+      true
+    ],
+    "Vav": [
+      192,
+      true
+    ],
+    "Ye": [
+      200,
+      true
+    ],
+    "plate": [
+      8,
+      true
+    ]
+  },
+  "components": {
+    "backgrounds": "components/backgrounds/*.png",
+    "dirt": "components/dirt/*.png",
+    "letters": "components/letters/*.png",
+    "mini_numbers": "components/mini_numbers/*.png",
+    "misc": "components/misc/*.png",
+    "numbers": "components/numbers/*.png",
+    "plates": "components/plates/*.png"
+  },
+  "generator_config": {
+    "apply_dirt": true,
+    "apply_misc_noise": true,
+    "background_load_limit": 25,
+    "num_out_img": 25
+  },
+  "noise_config": {
+    "dirt_probability": 0.5,
+    "misc_bounds": [
+      {
+        "x_max": 138,
+        "x_min": 38,
+        "y_max": 150,
+        "y_min": 50
+      },
+      {
+        "x_max": 138,
+        "x_min": 38,
+        "y_max": 525,
+        "y_min": 275
+      },
+      {
+        "x_max": 138,
+        "x_min": 38,
+        "y_max": 750,
+        "y_min": 650
+      }
+    ],
+    "misc_probability": 0.75
+  },
+  "plate_config": {
+    "letter_offset": [
+      90,
+      305
+    ],
+    "mini_numbers_offset": [
+      [
+        105,
+        672
+      ],
+      [
+        105,
+        747
+      ]
+    ],
+    "numbers_offset": [
+      [
+        90,
+        115
+      ],
+      [
+        90,
+        195
+      ],
+      [
+        90,
+        420
+      ],
+      [
+        90,
+        500
+      ],
+      [
+        90,
+        580
+      ]
+    ]
+  },
+  "transformations_config": {
+    "max_dalpha": 0.78539816339750002,
+    "max_dbeta": 0.78539816339750002,
+    "max_dgamma": 0.52359877559833334,
+    "max_dz": 3.5,
+    "output_size": [
+      1024,
+      1024
+    ]
+  }
+}
