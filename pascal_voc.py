@@ -10,10 +10,13 @@ kernel = numpy.ones((2, 2), numpy.uint8)
 
 def get_rects(img, threshold) -> [tuple]:
     bbox_list = []
-    thresh = (img == 40).astype(numpy.uint8)
+    thresh = (img == threshold).astype(numpy.uint8)
     thresh = cv2.erode(thresh, kernel, iterations=1)  # noise removal steps
     thresh = cv2.dilate(thresh, kernel, iterations=1)
     contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(img, contours, -1, (255, 255, 0), 3)
+    cv2.imshow('77', img)
+    cv2.waitKey(0)
     for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
         bbox_list.append((x, y, x + w, y + h))

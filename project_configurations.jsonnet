@@ -18,19 +18,18 @@ local noise_x_bounds_deviation = 50;
 
 {
   "generator_config": {
-    "num_out_img": 100, // adding more background files might be necessary
+    "num_out_img": 25, // adding more background files might be necessary
      // the more background pictures you load simultaneously, the faster the generator will be
      // this limit depends on machine's available memory.
-    "background_load_limit": 100, // performance tip: background_load_limit should devide number of background images
+    "background_load_limit": 25, // performance tip: background_load_limit should devide number of background images
     "apply_misc_noise": true,
     "apply_dirt": true
   },
   "annotations_config": {
     "source": "automated_lp",
     // "bg": 0,
-    // plates
-    "simple": 8,
-    "taxi": 8,
+    // all characters after '_' in the file name will be ignored
+    "plate": 8,
     // numbers
     "0": 16,
     "1": 24,
@@ -42,17 +41,6 @@ local noise_x_bounds_deviation = 50;
     "7": 72,
     "8": 80,
     "9": 88,
-    // mini_numbers
-    "0_mini": 16,
-    "1_mini": 24,
-    "2_mini": 32,
-    "3_mini": 40,
-    "4_mini": 48,
-    "5_mini": 56,
-    "6_mini": 64,
-    "7_mini": 72,
-    "8_mini": 80,
-    "9_mini": 88,
     // letters
     "B": 96,
     "Dal": 104,

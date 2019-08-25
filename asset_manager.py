@@ -44,7 +44,7 @@ class AssetManager:
                     image = cv2.imread(file_name, -1)
                     self.__components[item].append(image)
 
-                    key = file_name.replace('.png', '').split('/')[-1]
+                    key = file_name.split('/')[-1].replace('.png', '').split('_')[0]
                     if key in project_config_file['annotations_config']:
                         annotation_value = project_config_file['annotations_config'][key]
                         annotation = (numpy.array(image[:, :, 3]) > 192).astype(numpy.uint8)
