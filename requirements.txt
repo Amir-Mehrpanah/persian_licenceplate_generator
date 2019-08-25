@@ -4,4 +4,3 @@ json2xml
 psutil
 jsonnet
 tqdm
-json
