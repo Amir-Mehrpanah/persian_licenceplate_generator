@@ -15,15 +15,19 @@ Generated sample with perspective transformations:\
 ## How to Use
 **Because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
-1. **Got all requirements installed**:
+0. **Create necessary directories:**
+    * automated_lp/output   --> where pictures will be located
+    * automated_lp/ann_output   --> where annotations will be located
+    * automated_lp/xmls     --> where pascal voc addresses will be located
+1. **Got all requirements installed:**
     * opencv-python
     * jsonnet
     * json
     
-2. **Tweak configuration file (optional)**:
+2. **Tweak configuration file: (optional)**
     * project_configurations.jsonnet
     
-3. **Out-of-the-box data generation**:
+3. **Out-of-the-box data generation:**
     * With default parameters:\
     ```$ python3 main.py```
     * Override config parameters:\
