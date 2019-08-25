@@ -19,7 +19,10 @@ On top of all that, it automatically generates associated xml files in pascal vo
 ## How to Use
 **Because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
-
+```html
+*Note: if you have trouble installing jsonnet on windows 
+try win_conf.json for windows to remove jsonnet dependencies 
+```
 0. **Create necessary directories:**
     * automated_lp/output   --> where pictures will be located
     * automated_lp/ann_output   --> where annotations will be located
