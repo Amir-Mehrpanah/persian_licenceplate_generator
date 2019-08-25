@@ -1,7 +1,7 @@
 .gitignore
 /venv/
 /.idea/
-/components/backgrounds/[001-999]*
+/components/backgrounds/
 /output/
 /ann_output/
 /xmls/

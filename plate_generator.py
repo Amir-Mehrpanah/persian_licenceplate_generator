@@ -32,7 +32,7 @@ class PlateGenerator:
 
     def fill_background(self, plate: numpy.ndarray) -> numpy.ndarray:
         bg = self.asset_manager.get_nxt_background()
-        plate = alpha_blend(bg, plate, [(bg.shape[0] - plate.shape[0]) // 2, (bg.shape[1] - plate.shape[1]) // 2])
+        plate = alpha_blend(bg, plate, ((bg.shape[0] - plate.shape[0]) // 2, (bg.shape[1] - plate.shape[1]) // 2))
         return plate
 
     def get_rnd_plate(self, apply_dirt=False, apply_misc_noise=False) -> (numpy.ndarray, numpy.ndarray):
@@ -65,7 +65,7 @@ class PlateGenerator:
                     misc = self.asset_manager.get_rnd_misc_noise()
                     x_location = random.randint(noise_box['x_min'], noise_box['x_max'])
                     y_location = random.randint(noise_box['y_min'], noise_box['y_max'])
-                    alpha_blend(plate, misc, [x_location - misc.shape[0] // 2, y_location - misc.shape[1] // 2])
+                    alpha_blend(plate, misc, (x_location - misc.shape[0] // 2, y_location - misc.shape[1] // 2))
 
         if apply_dirt:
             if random.uniform(0, 1) < self.asset_manager.noise_config['dirt_probability']:

@@ -61,14 +61,17 @@ class AssetManager:
         if self.__backgrounds is not None:
             del self.__backgrounds
         self.__backgrounds = []
-        if self.__bg_limit * self.__bg_pack > len(self.__bg_addresses):
+        if self.__bg_limit * self.__bg_pack >= len(self.__bg_addresses):
             self.__bg_pack = 0
         progress = tqdm(self.__bg_addresses[self.__bg_limit * self.__bg_pack:self.__bg_limit * (self.__bg_pack + 1)])
         for item in progress:
-            self.__backgrounds.append(cv2.imread(item, -1))
+            self.__backgrounds.append(cv2.imread(item))
             progress.set_postfix_str('memory: %' + str(psutil.virtual_memory()[2]))
         self.__bg_counter = 0
         self.__bg_pack += 1
+
+    def get_bg_image_addresses(self):
+        return self.__bg_addresses
 
     def get_rnd_raw_plate(self) -> (numpy.ndarray, numpy.ndarray):
         index = random.randint(0, len(self.__components['plates']) - 1)
