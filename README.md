@@ -20,7 +20,7 @@ unless you want something structurally different!**
     * automated_lp/output   --> where pictures will be located
     * automated_lp/ann_output   --> where annotations will be located
     * automated_lp/xmls     --> where pascal voc addresses will be located
-1. **Got all requirements installed:**
+1. **Got all requirements installed:**\
     ```pip3 install --upgrade -r requirements.txt```
     
 2. **Tweak configuration file: (optional)**
