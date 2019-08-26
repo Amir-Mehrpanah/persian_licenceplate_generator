@@ -57,7 +57,7 @@ class AssetManager:
                                 f' annotations_config.\n Annotation skipped.')
 
     def __init_backgrounds(self):
-        print(f'loading backgrounds (pack {self.__bg_pack})...')
+        print(f'\nloading backgrounds (pack {self.__bg_pack})...')
         if self.__backgrounds is not None:
             del self.__backgrounds
         self.__backgrounds = []
@@ -66,7 +66,6 @@ class AssetManager:
         progress = tqdm(self.__bg_addresses[self.__bg_limit * self.__bg_pack:self.__bg_limit * (self.__bg_pack + 1)])
         for item in progress:
             self.__backgrounds.append(cv2.imread(item))
-            progress.set_postfix_str('memory: %' + str(psutil.virtual_memory()[2]))
         self.__bg_counter = 0
         self.__bg_pack += 1
 
