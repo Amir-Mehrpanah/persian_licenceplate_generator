@@ -1,4 +1,6 @@
 import argparse
+import os
+
 import psutil
 import _jsonnet
 from cv2 import cv2
@@ -17,6 +19,11 @@ parser.add_argument('--apply_misc_noise', default=assets.generator_config['apply
 parser.add_argument('--apply_dirt', default=assets.generator_config['apply_dirt'], type=bool)
 args = parser.parse_args()
 
+os.makedirs(assets.generator_config['output_directory'])
+annotation_path = ''
+images_path = ''
+xmls_path = ''
+package_counter = 0
 print(f'\ngenerating {args.num_out_img} images.')
 progress = tqdm(range(args.num_out_img))
 
@@ -26,9 +33,22 @@ for index in progress:
                                                       apply_dirt=args.apply_dirt)
     plate, annotation = perspective_transform(plate, annotation, assets.transformations_config)
     plate = plate_generator.fill_background(plate)
-    cv2.imwrite('output/{0:05}.jpg'.format(index), plate)
-    cv2.imwrite('ann_output/{0:05}.png'.format(index), annotation)
-    progress.set_postfix_str('memory: %' + str(psutil.virtual_memory()[2]))
+    if index % assets.generator_config['img_per_package_count'] == 0:
+        current_directory = os.path.join(assets.generator_config['output_directory'], f'{package_counter:02}')
+        os.mkdir(current_directory)
 
-# pascal voc format
-bounding_rects_to_xml('ann_output/*.png', 'xmls/', assets.annotations_config)
+        annotation_path = os.path.join(current_directory, 'anns')
+        os.mkdir(annotation_path)
+        xmls_path = os.path.join(annotation_path, 'xmls')
+        os.mkdir(xmls_path)
+        images_path = os.path.join(current_directory, 'imgs')
+        os.mkdir(images_path)
+        package_counter += 1
+
+    cv2.imwrite(os.path.join(images_path, f'{index:05}.jpg'), plate)
+    cv2.imwrite(os.path.join(annotation_path, f'{index:05}.png'), annotation)
+
+for index in range(package_counter):
+    # pascal voc format
+    input_address = os.path.join(assets.generator_config['output_directory'], f'{index:02}/anns')
+    bounding_rects_to_xml(input_address + '/*.png', os.path.join(input_address, 'xmls'), assets.annotations_config)

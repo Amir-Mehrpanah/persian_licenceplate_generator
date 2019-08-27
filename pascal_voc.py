@@ -29,8 +29,8 @@ def get_rects(img, threshold, single_instance) -> [tuple]:
 
 
 def bounding_rects_to_xml(input_directory, output_directory, annotations_config):
-    file_names = glob.glob(input_directory)
     print('\ngenerating xmls...')
+    file_names = glob.glob(input_directory)
     for file in tqdm(file_names):
         real_path = os.path.realpath(file)
         path = real_path.split('/')
