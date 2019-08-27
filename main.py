@@ -35,7 +35,7 @@ for index in progress:
                                                       apply_dirt=args.apply_dirt)
     plate, annotation = perspective_transform(plate, annotation, assets.transformations_config)
     plate = plate_generator.fill_background(plate)
-    if index % args.img_per_package_count == 0:
+    if index % args.img_per_package == 0:
         current_directory = os.path.join(args.output_directory, f'{package_counter:02}')
         os.mkdir(current_directory)
 
