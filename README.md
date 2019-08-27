@@ -23,10 +23,6 @@ unless you want something structurally different!**
 *Note: if you have trouble installing jsonnet on windows 
 try win_conf.json for windows to remove jsonnet dependencies 
 ```
-0. **Create necessary directories:**
-    * automated_lp/output   --> where pictures will be located
-    * automated_lp/ann_output   --> where annotations will be located
-    * automated_lp/xmls     --> where pascal voc addresses will be located
 1. **Got all requirements installed:**\
     ```pip3 install --upgrade -r requirements.txt```
     
