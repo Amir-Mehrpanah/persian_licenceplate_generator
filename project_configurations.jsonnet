@@ -25,7 +25,7 @@ local noise_x_bounds_deviation = 50;
     "apply_misc_noise": true,
     "apply_dirt": true,
     "output_directory": "output",
-    "img_per_package_count": 80
+    "img_per_package": 80
   },
   "annotations_config": {
     // "bg": 0,

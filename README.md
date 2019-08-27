@@ -21,7 +21,7 @@ On top of all that, it automatically generates associated xml files in pascal vo
 unless you want something structurally different!**
 ```html
 *Note: if you have trouble installing jsonnet on windows 
-try win_conf.json for windows to remove jsonnet dependencies 
+use win_conf.json instead and remove jsonnet dependencies 
 ```
 1. **Got all requirements installed:**\
     ```pip3 install --upgrade -r requirements.txt```
@@ -33,6 +33,8 @@ try win_conf.json for windows to remove jsonnet dependencies
     * With default parameters:\
     ```$ python3 main.py```
     * Override config parameters:\
-    ```$ pyhton3 main.py --num_out_img 1000```\
+    ```$ pyhton3 main.py --num_out_img 10000```\
     ```$ pyhton3 main.py --apply_misc_noise False```\
-    ```$ pyhton3 main.py --num_out_img False``` 
+    ```$ pyhton3 main.py --apply_dirt False``` \
+    ```$ pyhton3 main.py --output_directory 'output'``` (doesn't already exist) \
+    ```$ pyhton3 main.py --img_per_package 8000``` 
