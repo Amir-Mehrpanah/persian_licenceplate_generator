@@ -16,7 +16,7 @@ class AssetManager:
         self.log_warning = log_warning
         # no need to change the code, just tweak the config file :)
         project_config_file = json.loads(config_path)
-        self.__backgrounds = None
+        self.__backgrounds = []
         self.__bg_counter = 0
         self.__bg_pack = 0
         self.__bg_addresses = glob.glob(project_config_file['components']['backgrounds'])
@@ -57,16 +57,18 @@ class AssetManager:
                                 f' annotations_config.\n Annotation skipped.')
 
     def __init_backgrounds(self):
-        print(f'\nloading backgrounds (pack {self.__bg_pack})...')
-        if self.__backgrounds is not None:
-            del self.__backgrounds
-        self.__backgrounds = []
         if self.__bg_limit * self.__bg_pack >= len(self.__bg_addresses):
             self.__bg_pack = 0
+        self.__bg_counter = 0
+        if self.__bg_limit == len(self.__bg_addresses) and len(self.__backgrounds) != 0:
+            return
+        print(f'\nloading backgrounds (pack {self.__bg_pack})...')
+        if len(self.__backgrounds) == 0:
+            del self.__backgrounds
+        self.__backgrounds = []
         progress = tqdm(self.__bg_addresses[self.__bg_limit * self.__bg_pack:self.__bg_limit * (self.__bg_pack + 1)])
         for item in progress:
             self.__backgrounds.append(cv2.imread(item))
-        self.__bg_counter = 0
         self.__bg_pack += 1
 
     def get_bg_image_addresses(self):
