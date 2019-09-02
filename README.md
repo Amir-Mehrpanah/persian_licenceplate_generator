@@ -1,4 +1,4 @@
-# Automated LP
+# Persian Licence Plate Generator
 This repository helps you generate a veritable cornucopia of persian licence plates.
 You're almost done with this part, [training your own CNN would be the next step though](https://gluon-cv.mxnet.io/install.html)!
 
@@ -15,7 +15,10 @@ Generated sample with perspective transformations:\
 On top of all that, it automatically generates associated xml files in pascal voc format: \
 ![Sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/pascal_voc_bbox.png)
 
+Sample neural network trained on this dataset:\
+![Sample](https://github.com/Amir-Mehrpanah/atumated_lp/blob/master/README_contents/detections.png)
 
+Model zoo [faster_rcnn_inception_v2_coco](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md)
 ## How to Use
 **Because of oop pattern you won't need to make significant changes 
 unless you want something structurally different!**
