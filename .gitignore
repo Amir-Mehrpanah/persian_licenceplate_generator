@@ -1,7 +1,8 @@
 .gitignore
 /venv/
+/plateEnv/
+/__pycache__/
 /.idea/
-/components/backgrounds/
 /output/
 /ann_output/
 /xmls/

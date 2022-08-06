@@ -1,7 +1,7 @@
 import glob
 import os
 from tqdm import tqdm
-from cv2 import cv2
+import cv2
 import numpy
 from json2xml import json2xml
 
