@@ -27,6 +27,13 @@ def get_rects(img, threshold, single_instance) -> [tuple]:
         bbox_list.append((xmin, ymin, xmax, ymax))
     return bbox_list
 
+def xml_to_yolo_bbox(bbox, w, h):
+    # xmin, ymin, xmax, ymax
+    x_center = ((bbox[2] + bbox[0]) / 2) / w
+    y_center = ((bbox[3] + bbox[1]) / 2) / h
+    width = (bbox[2] - bbox[0]) / w
+    height = (bbox[3] - bbox[1]) / h
+    return [x_center, y_center, width, height]
 
 def bounding_rects_to_xml(input_directory, output_directory, annotations_config):
     print('\ngenerating xmls...')
@@ -51,7 +58,9 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
         }
         index = 0
         data_dic['object'] = []
+        yolostr="";
         for key in annotations_config:
+         
             rects_list = get_rects(annotation, annotations_config[key][0], single_instance=annotations_config[key][1])
             for _object in rects_list:
                 data_dic['object'].append({})
@@ -65,7 +74,10 @@ def bounding_rects_to_xml(input_directory, output_directory, annotations_config)
                     'xmax': _object[2],
                     'ymax': _object[3]
                 }
+                x_center, y_center, width, height=xml_to_yolo_bbox(_object, annotation.shape[0], annotation.shape[1])
+                yolostr+=key+" "+str(x_center)+" "+str(y_center)+" "+str(width)+" "+str(height)+"\n"
                 index += 1
-        xml = json2xml.Json2xml(data_dic, wrapper='annotation').to_xml()
-        with open(os.path.join(output_directory, path[-1].replace('.png', '.xml')), "w") as f_out:
-            f_out.write(xml)
+        # xml = json2xml.Json2xml(data_dic, wrapper='annotation').to_xml()
+     
+        with open(os.path.join(output_directory, path[-1].replace('.png', '.txt')), "w") as f_out:
+            f_out.write(yolostr)
