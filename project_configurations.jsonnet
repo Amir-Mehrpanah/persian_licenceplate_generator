@@ -48,7 +48,7 @@ local noise_x_bounds_deviation = 50;
     "B": [96, true],
     "P": [97, true],
     "T": [98, true],
-    "S": [96, true],
+    "S": [100, true],
     "J": [104, true],
     "CH": [112, true],
     "HE": [120, true],
