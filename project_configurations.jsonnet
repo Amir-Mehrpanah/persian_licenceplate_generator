@@ -45,19 +45,19 @@ local noise_x_bounds_deviation = 50;
     "9": [88, false],
     // letters
     "B": [96, true],
-    "Dal": [104, true],
-    "Ghaf": [112, true],
-    "Gim": [120, true],
+    "D": [104, true],
+    "Q": [112, true],
+    "J": [120, true],
     "H": [128, true],
-    "Lam": [136, true],
-    "Mim": [144, true],
-    "Nun": [152, true],
-    "Sad": [160, true],
-    "Sin": [168, true],
+    "L": [136, true],
+    "M": [144, true],
+    "N": [152, true],
+    "SAD": [160, true],
+    "SIN": [168, true],
     "T": [176, true],
-    "Tah": [184, true],
-    "Vav":[192, true],
-    "Ye": [200, true]
+    "TA": [184, true],
+    "V":[192, true],
+    "Y": [200, true]
   },
   "plate_config": {
     "letter_offset": [
