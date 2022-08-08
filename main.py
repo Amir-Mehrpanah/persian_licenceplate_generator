@@ -4,6 +4,7 @@ import os
 import psutil
 import _jsonnet
 import cv2
+import shutil
 from tqdm import tqdm
 from plate_generator import PlateGenerator
 from transformations import perspective_transform
@@ -20,8 +21,8 @@ parser.add_argument('--img_per_package', default=assets.generator_config['img_pe
 parser.add_argument('--apply_misc_noise', default=assets.generator_config['apply_misc_noise'], type=bool)
 parser.add_argument('--apply_dirt', default=assets.generator_config['apply_dirt'], type=bool)
 args = parser.parse_args()
-if False==os.path.exists(args.output_directory):
-    os.makedirs(args.output_directory)
+shutil.rmtree(args.output_directory, ignore_errors=True)
+os.makedirs(args.output_directory)
 annotation_path = ''
 images_path = ''
 xmls_path = ''
