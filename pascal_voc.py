@@ -96,7 +96,7 @@ def getLanbelFromKey(key):
     elif key == "V":
         return "39"
     elif key == "H":
-        return "30"
+        return "40"
     elif key == "Y":
         return "41"
     elif key == "plate":
