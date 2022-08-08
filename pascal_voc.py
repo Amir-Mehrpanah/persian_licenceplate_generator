@@ -74,7 +74,7 @@ def getLanbelFromKey(key):
     elif key == "TA":
         return "28"
     elif key == "ZA":
-        return "28"
+        return "29"
     elif key == "AIN":
         return "30"
     elif key == "GHAIN":
