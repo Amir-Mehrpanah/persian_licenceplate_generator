@@ -18,14 +18,14 @@ local noise_x_bounds_deviation = 50;
 
 {
   "generator_config": {
-    "num_out_img": 100, // adding more background files might be necessary
+    "num_out_img": 48000, // adding more background files might be necessary
      // the more background pictures you load simultaneously, the faster the generator will be
      // this limit depends on machine's available memory.
     "background_load_limit": 100, // performance tip: background_load_limit should devide number of background images
     "apply_misc_noise": true,
     "apply_dirt": true,
     "output_directory": "output",
-    "img_per_package": 80
+    "img_per_package": 6000
   },
   "annotations_config": {
     // "bg": 0,
@@ -44,20 +44,38 @@ local noise_x_bounds_deviation = 50;
     "8": [80, false],
     "9": [88, false],
     // letters
+    "A": [95, true],
     "B": [96, true],
-    "Dal": [104, true],
-    "Ghaf": [112, true],
-    "Gim": [120, true],
-    "H": [128, true],
-    "Lam": [136, true],
-    "Mim": [144, true],
-    "Nun": [152, true],
-    "Sad": [160, true],
-    "Sin": [168, true],
-    "T": [176, true],
-    "Tah": [184, true],
-    "Vav":[192, true],
-    "Ye": [200, true]
+    "P": [97, true],
+    "T": [98, true],
+    "S": [100, true],
+    "J": [104, true],
+    "CH": [112, true],
+    "HE": [120, true],
+    "KH": [128, true],
+    "D": [136, true],
+    "Z": [144, true],
+    "R": [152, true],
+    "ZE": [160, true],
+    "ZH": [168, true],
+    "SIN": [176, true],
+    "SHIN": [184, true],
+    "SAD":[192, true],
+    "ZAD": [193, true],
+    "TA": [194, true],
+    "ZA": [195, true],
+    "AIN": [196, true],
+    "GHAIN": [197, true],
+    "F": [198, true],
+    "Q": [200, true],
+    "K": [201, true],
+    "G": [202, true],
+    "L": [203, true],
+    "M": [204, true],
+    "N": [205, true],
+    "V": [206, true],
+    "H": [207, true],
+    "Y": [208, true]
   },
   "plate_config": {
     "letter_offset": [
@@ -123,9 +141,9 @@ local noise_x_bounds_deviation = 50;
   },
   "transformations_config": {
     "output_size": [1024,1024],
-    "max_dalpha": PI / 4,
-    "max_dbeta": PI / 4,
-    "max_dgamma": PI / 6,
+    "max_dalpha": PI / 10,
+    "max_dbeta": PI / 10,
+    "max_dgamma": PI / 10,
     "max_dz": 3.5 // min_dz = 1
   },
   "components": {
@@ -135,6 +153,6 @@ local noise_x_bounds_deviation = 50;
     "misc": "components/misc/*.png",
     "numbers": "components/numbers/*.png",
     "plates": "components/plates/*.png",
-    "backgrounds": "components/backgrounds/*.jpg"
+    "backgrounds": "components/backgrounds/*.png"
   }
 }
