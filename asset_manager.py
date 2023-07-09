@@ -1,5 +1,6 @@
 import glob
 import json
+import os
 import random
 import warnings
 
@@ -44,7 +45,7 @@ class AssetManager:
                     image = cv2.imread(file_name, -1)
                     self.__components[item].append(image)
 
-                    key = file_name.split('/')[-1].replace('.png', '').replace('\\', '/').replace("\n",'/').split('/')[1].split('_')[-1]
+                    key = self.__get_annotation_path(file_name)
                     if key in project_config_file['annotations_config']:
                         annotation_value = project_config_file['annotations_config'][key][0]
                         annotation = (numpy.array(image[:, :, 3]) > 192).astype(numpy.uint8)
@@ -55,6 +56,18 @@ class AssetManager:
                             warnings.warn(
                                 f'key: {key} for {file_name} not found in project_config ->'
                                 f' annotations_config.\n Annotation skipped.')
+
+    def __get_annotation_path(self, file_path):
+        """
+        :param file_path: path to the image file
+        :return: key for the annotation
+        This function is used to get the key for the annotation of the image.
+        the assumption here is that we ignore the rest of the file name after the first '_' 
+        """
+        file_name = os.path.split(file_path)[-1] # get the file name
+        file_name = file_name.replace('.png', '') # remove the extension
+        key = file_name.split('_')[0] # get the key for annotation
+        return key
 
     def __init_backgrounds(self):
         if self.__bg_limit * self.__bg_pack >= len(self.__bg_addresses):
