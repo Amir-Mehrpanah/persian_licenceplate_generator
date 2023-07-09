@@ -24,7 +24,8 @@ Model zoo [faster_rcnn_inception_v2_coco](https://github.com/tensorflow/models/b
 unless you want something structurally different!**
 ```html
 *Note: if you have trouble installing jsonnet on windows 
-use win_conf.json instead and remove jsonnet dependencies 
+use win_conf.json instead and remove jsonnet dependencies
+(For installing jsonnet on windows run: "pip install jsonnet-binary")
 ```
 1. **Got all requirements installed:**\
     ```pip3 install --upgrade -r requirements.txt```
